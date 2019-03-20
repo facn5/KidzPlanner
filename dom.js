@@ -9,9 +9,10 @@
   var addTodoForm = document.getElementById('add-todo');
 
   var state = [{
-      id: -3,
+
       description: 'first todo',
-      done:true
+      done:true,
+      id: -3
     },
     {
       id: -2,
@@ -67,9 +68,11 @@
       let descriptionEle = document.getElementById("description"); // event.target ....
       let description = descriptionEle.value;
       // hint: todoFunctions.addTodo
-      state = todoFunctions.addTodo(state, {
-        description
-      });
+      let newTodo= {
+        description:description,
+        done:false
+      }
+      state = todoFunctions.addTodo(state, newTodo);
 
       descriptionEle.value = "";
       // ?? change this!
