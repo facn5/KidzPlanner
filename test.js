@@ -9,9 +9,9 @@ test('Testing addTodo with empty array', function(t) {
   }
   var acc = logic.addTodo([], newTodo);
   var expected = [newTodo];
-  t.deepEqual(expected, expected, "input value not changed");
+  t.deepEqual(acc, acc, "input value not changed");
   t.deepEqual(acc, expected, "expected value reached");
-  t.deepEqual(typeof acc[0]["id"],"number", "id value added");
+  t.deepEqual(typeof acc[0]["id"], "number", "id value added");
   t.end();
 });
 
@@ -27,27 +27,50 @@ test('Testing addTodo with array not empty', function(t) {
   }
   let acc = logic.addTodo(todos, newTodo);
   let expected = [todo, newTodo];
-  t.deepEqual(expected, expected, "input value not changed");
+  t.deepEqual(acc, acc, "input value not changed");
   t.deepEqual(acc, expected, "expected value reached");
-  t.deepEqual(typeof acc[1]["id"],"number", "id value added");
+  t.deepEqual(typeof acc[1]["id"], "number", "id value added");
   t.end();
-})
+});
 
-test('Testing deleteTodo if it delets a certain ID function' , function(t) {
+test('Testing deleteTodo if it delets a certain ID function', function(t) {
 
-  var acc = logic.deleteTodo([{id: 7},{id: 1},{id :8}],1);
-  var expected = [{id: 7},{id :8}];
+  var acc = logic.deleteTodo([{
+    id: 7
+  }, {
+    id: 1
+  }, {
+    id: 8
+  }], 1);
+  var expected = [{
+    id: 7
+  }, {
+    id: 8
+  }];
   t.deepEqual(acc, expected, "testing array.filter");
   t.end();
 })
 
-test('Testing deleteTodo Keep the input argument unchanged' , function(t) {
-  var todos=[{id:0,disc:"wake up every mor"},{id:1,disc:"Hi"}]
+test('Testing deleteTodo Keep the input argument unchanged', function(t) {
+  var todos = [{
+    id: 0,
+    disc: "wake up every mor"
+  }, {
+    id: 1,
+    disc: "Hi"
+  }]
   logic.deleteTodo(todos, 0)
-  var acc=todos
-  var expected =[{id:0,disc:"wake up every mor"},{id:1,disc:"Hi"}];
+  var acc = todos
+  var expected = [{
+    id: 0,
+    disc: "wake up every mor"
+  }, {
+    id: 1,
+    disc: "Hi"
+  }];
   t.deepEqual(acc, expected, "testing cloneArrayOfObjects getting new copy of arry");
-
+  t.end();
+});
 test('Testing markTodo function', function(t) {
   let preTestItem = [{
     id: 0,
@@ -70,8 +93,6 @@ test('Testing markTodo function', function(t) {
   }];
 
   let actual = logic.markTodo(preTestItem, "idToMark");
-  console.log(actual)
-
   t.deepEqual(actual, expected, "Should toggle 'done' value of item with id: idToMark")
   t.end();
 });
