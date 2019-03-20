@@ -1,28 +1,46 @@
 // part 2 linking it all together
 // The function here is called an iife,
 // it keeps everything inside hidden from the rest of our application
+
 (function() {
   // This is the dom node where we will keep our todo
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
 
-  var state = [
-    { id: -3, description: 'first todo' },
-    { id: -2, description: 'second todo' },
-    { id: -1, description: 'third todo' },
+  var state = [{
+      id: -3,
+      description: 'first todo'
+    },
+    {
+      id: -2,
+      description: 'second todo'
+    },
+    {
+      id: -1,
+      description: 'third todo'
+    },
   ]; // this is our initial todoList
 
   // This function takes a todo, it returns the DOM node representing that todo
   var createTodoNode = function(todo) {
-    var todoNode = document.createElement('li');
+    let todoNode = document.createElement('li');
     // you will need to use addEventListener
 
     // add span holding description
+    let todoSpan = document.createElement('span');
+    console.log(todo.description);
+
+    todoSpan.innerHTML = todo.description;
+
+    todoNode.appendChild(todoSpan);
 
     // this adds the delete button
-    var deleteButtonNode = document.createElement('button');
+    let deleteButtonNode = document.createElement('button');
+    deleteButtonNode.innerHTML = "CLICK ME"; // Insert text
+    todoNode.appendChild(deleteButtonNode);
+
     deleteButtonNode.addEventListener('click', function(event) {
-      var newState = todoFunctions.deleteTodo(state, todo.id);
+      let newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
     todoNode.appendChild(deleteButtonNode);
@@ -40,12 +58,20 @@
       // https://developer.mozilla.org/en-US/docs/Web/Events/submit
       // what does event.preventDefault do?
       // what is inside event.target?
+      event.preventDefault();
 
-      var description = '?'; // event.target ....
-
+      let descriptionEle = document.getElementById("description"); // event.target ....
+      let description = descriptionEle.value;
       // hint: todoFunctions.addTodo
-      var newState = []; // ?? change this!
-      update(newState);
+      state = todoFunctions.addTodo(state, {
+        description
+      });
+
+      descriptionEle.value = "";
+      // ?? change this!
+
+      update(state);
+
     });
   }
 
