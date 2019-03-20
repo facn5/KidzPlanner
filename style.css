@@ -1,11 +1,39 @@
+/* font-family: 'BioRhyme', serif;
+font-family: 'Shadows Into Light', cursive; */
 body {
   margin: 0 auto;
   text-align: center;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 2rem;
+  color: #c3423f;
+  background-color:  #FEF9CD;
+  /* background-image:url(https://user-images.githubusercontent.com/32282170/54687770-028a4500-4b25-11e9-8fd4-bd77f50f2a7c.png);
+  background-repeat: no-repeat;
+  background-position: center; */
 }
+
+header {
+  font-family: 'BioRhyme', serif;
+  font-size: 3rem;
+  color: #5bc0eb;
+}
+
+input {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 2rem;
+  color: #c3423f;
+}
+
+/* input[type=submit]{
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 2rem;
+} */
 
 .list-group {
   display: block;
   border: 1px solid black;
+  margin: 0 auto;
+  width: 90%;
 }
 
 #addTodo {
