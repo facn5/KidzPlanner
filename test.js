@@ -31,4 +31,32 @@ test('Testing addTodo with array not empty', function(t) {
   t.deepEqual(acc, expected, "expected value reached");
   t.deepEqual(typeof acc[1]["id"],"number", "id value added");
   t.end();
+})
+
+test('Testing markTodo function', function(t) {
+  let preTestItem = [{
+    id: 0,
+    description: "do my homework",
+    done: false
+  }, {
+    id: "idToMark",
+    description: "make my bed",
+    done: false
+  }];
+
+  let expected = [{
+    id: 0,
+    description: "do my homework",
+    done: false
+  }, {
+    id: "idToMark",
+    description: "make my bed",
+    done: true
+  }];
+
+  let actual = logic.markTodo(preTestItem, "idToMark");
+  console.log(actual)
+
+  t.deepEqual(actual, expected, "Should toggle 'done' value of item with id: idToMark")
+  t.end();
 });

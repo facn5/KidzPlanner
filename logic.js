@@ -39,11 +39,21 @@ var todoFunctions = {
     // hint: array.filter
   },
   markTodo: function(todos, idToMark) {
+    let result = todoFunctions.cloneArrayOfObjects(todos)
+    let sorted = result.map(function(x) {
+      if (x.id == "idToMark") {
+        x.done = true
+      }
+      return x;
+    })
+    return sorted
+
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
     // in the new todo array, all elements will remain unchanged except the one with id: idToMark
     // this element will have its done value toggled
     // hint: array.map
   },
+
   sortTodos: function(todos, sortFunction) {
     // stretch goal! Do this last
     // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
@@ -51,7 +61,6 @@ var todoFunctions = {
     // hint: array.slice, array.sort
   },
 };
-
 
 // Why is this if statement necessary?
 // The answer has something to do with needing to run code both in the browser and in Node.js
