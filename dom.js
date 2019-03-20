@@ -4,20 +4,25 @@
 
 (function() {
   // This is the dom node where we will keep our todo
-  var container = document.getElementById('todo-container');
+  var todoContainer = document.getElementById('todo-container');
+  var completedContainer = document.getElementById('completed-container');
   var addTodoForm = document.getElementById('add-todo');
 
   var state = [{
-      id: -3,
-      description: 'first todo'
+
+      description: 'first todo',
+      done:true,
+      id: -3
     },
     {
       id: -2,
-      description: 'second todo'
+      description: 'second todo',
+      done:false
     },
     {
       id: -1,
-      description: 'third todo'
+      description: 'third todo',
+      done:false
     },
   ]; // this is our initial todoList
 
@@ -63,9 +68,11 @@
       let descriptionEle = document.getElementById("description"); // event.target ....
       let description = descriptionEle.value;
       // hint: todoFunctions.addTodo
-      state = todoFunctions.addTodo(state, {
-        description
-      });
+      let newTodo= {
+        description:description,
+        done:false
+      }
+      state = todoFunctions.addTodo(state, newTodo);
 
       descriptionEle.value = "";
       // ?? change this!
@@ -84,15 +91,22 @@
 
   // you do not need to change this function
   var renderState = function(state) {
+
     var todoListNode = document.createElement('ul');
+    var completedListNode = document.createElement('ul');
 
     state.forEach(function(todo) {
-      todoListNode.appendChild(createTodoNode(todo));
+      if (todo.done)
+        completedListNode.appendChild(createTodoNode(todo));
+      else {
+        todoListNode.appendChild(createTodoNode(todo));
+      }
     });
 
     // you may want to add a class for css
-    container.replaceChild(todoListNode, container.firstChild);
+    todoContainer.replaceChild(todoListNode, todoContainer.firstChild);
+    completedContainer.replaceChild(completedListNode, completedContainer.firstChild);
   };
 
-  if (container) renderState(state);
+  if (todoContainer) renderState(state);
 })();
