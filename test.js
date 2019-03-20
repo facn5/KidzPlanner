@@ -77,7 +77,7 @@ test('Testing markTodo function', function(t) {
     description: "do my homework",
     done: false
   }, {
-    id: "idToMark",
+    id: 1,
     description: "make my bed",
     done: false
   }];
@@ -87,12 +87,12 @@ test('Testing markTodo function', function(t) {
     description: "do my homework",
     done: false
   }, {
-    id: "idToMark",
+    id: 1,
     description: "make my bed",
     done: true
   }];
 
-  let actual = logic.markTodo(preTestItem, "idToMark");
+  let actual = logic.markTodo(preTestItem, 1);
   t.deepEqual(actual, expected, "Should toggle 'done' value of item with id: idToMark")
   t.end();
 });

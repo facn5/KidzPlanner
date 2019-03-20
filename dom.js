@@ -11,18 +11,18 @@
   var state = [{
 
       description: 'first todo',
-      done:true,
+      done: true,
       id: -3
     },
     {
       id: -2,
       description: 'second todo',
-      done:false
+      done: false
     },
     {
       id: -1,
       description: 'third todo',
-      done:false
+      done: false
     },
   ]; // this is our initial todoList
 
@@ -41,7 +41,7 @@
 
     // this adds the delete button
     let deleteButtonNode = document.createElement('button');
-    deleteButtonNode.textContent = "CLICK ME"; // Insert text
+    deleteButtonNode.textContent = "Delete"; // Insert text
     todoNode.appendChild(deleteButtonNode);
 
     deleteButtonNode.addEventListener('click', function(event) {
@@ -51,6 +51,17 @@
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
+
+    // this adds the delete button
+    let doneButtonNode = document.createElement('button');
+    doneButtonNode.textContent = "Done"; // Insert text
+    todoNode.appendChild(doneButtonNode);
+
+    doneButtonNode.addEventListener('click', function(event) {
+      let newState = todoFunctions.markTodo(state, todo.id);
+      update(newState);
+    });
+    todoNode.appendChild(doneButtonNode);
 
     // add classes for css
 
@@ -68,9 +79,9 @@
       let descriptionEle = document.getElementById("description"); // event.target ....
       let description = descriptionEle.value;
       // hint: todoFunctions.addTodo
-      let newTodo= {
-        description:description,
-        done:false
+      let newTodo = {
+        description: description,
+        done: false
       }
       state = todoFunctions.addTodo(state, newTodo);
 
