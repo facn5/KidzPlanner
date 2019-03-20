@@ -39,17 +39,19 @@ var todoFunctions = {
     // hint: array.filter
 
 
-  var newtodos=todoFunctions.cloneArrayOfObjects(todos);
-  return newtodos.filter(function(obj){
-  if(obj.id !==idToDelete){return true;}
-  return false;
-})
+    var newtodos = todoFunctions.cloneArrayOfObjects(todos);
+    return newtodos.filter(function(obj) {
+      if (obj.id !== idToDelete) {
+        return true;
+      }
+      return false;
+    })
   },
   markTodo: function(todos, idToMark) {
     let result = todoFunctions.cloneArrayOfObjects(todos)
     let sorted = result.map(function(x) {
-      if (x.id == "idToMark") {
-        x.done = true
+      if (x.id === idToMark) {
+        x.done = !x.done;
       }
       return x;
     })
