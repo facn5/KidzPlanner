@@ -28,10 +28,9 @@ var todoFunctions = {
     // returns a new array, it should contain todos with the newTodo added to the end.
     // add an id to the newTodo. You can use the generateId function to create an id.
     // hint: array.concat
-    console.log(todoFunctions);
-    var newArr = [];
+    let newArr = this.cloneArrayOfObjects(todos);
+    newTodo["id"] = this.generateId();
     newArr.push(newTodo);
-    console.log("inside addTodo-----" + newArr);
     return newArr;
   },
   deleteTodo: function(todos, idToDelete) {

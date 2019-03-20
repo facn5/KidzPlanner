@@ -1,19 +1,7 @@
 var test = require('tape');
 var logic = require('./logic');
 
-// test('Testing addToDo function', function(t) {
-//   console.log(newTodo);
-//   console.log(todos);
-//   var acc = newTodo;
-//   var expected = {
-//     description: "just testing",
-//     done: true
-//   }
-//   t.deepEqual(acc,expected,"msg");
-//   t.end();
-// });
-
-test('Testing addToDo2 function', function(t) {
+test('Testing addTodo with empty array', function(t) {
   var todos = [];
   var newTodo = {
     description: "just testing",
@@ -21,7 +9,27 @@ test('Testing addToDo2 function', function(t) {
   }
   var acc = logic.addTodo([], newTodo);
   var expected = [newTodo];
-  t.deepEqual(acc, expected, "test fails");
+  t.deepEqual(expected, expected, "input value not changed");
+  t.deepEqual(acc, expected, "expected value reached");
+  t.deepEqual(typeof acc[0]["id"],"number", "id value added");
+  t.end();
+});
+
+test('Testing addTodo with array not empty', function(t) {
+  let todo = {
+    description: "testing",
+    done: false
+  };
+  let todos = [todo];
+  let newTodo = {
+    description: "just testing",
+    done: true
+  }
+  let acc = logic.addTodo(todos, newTodo);
+  let expected = [todo, newTodo];
+  t.deepEqual(expected, expected, "input value not changed");
+  t.deepEqual(acc, expected, "expected value reached");
+  t.deepEqual(typeof acc[1]["id"],"number", "id value added");
   t.end();
 })
 
