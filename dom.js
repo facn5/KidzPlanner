@@ -34,13 +34,13 @@
     let todoSpan = document.createElement('span');
     console.log(todo.description);
 
-    todoSpan.innerHTML = todo.description;
+    todoSpan.textContent = todo.description;
 
     todoNode.appendChild(todoSpan);
 
     // this adds the delete button
     let deleteButtonNode = document.createElement('button');
-    deleteButtonNode.innerHTML = "CLICK ME"; // Insert text
+    deleteButtonNode.textContent = "CLICK ME"; // Insert text
     todoNode.appendChild(deleteButtonNode);
 
     deleteButtonNode.addEventListener('click', function(event) {
@@ -82,6 +82,7 @@
   // you should not need to change this function
   var update = function(newState) {
     state = newState;
+    console.log(state);
     renderState(state);
   };
 
