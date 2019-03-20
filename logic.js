@@ -18,7 +18,7 @@ var todoFunctions = {
   //cloneArrayOfObjects will create a copy of the todos array
   //changes to the new array don't affect the original
   cloneArrayOfObjects: function(todos) {
-    return todos.map(function(todo){
+    return todos.map(function(todo) {
       return JSON.parse(JSON.stringify(todo));
     });
   },
@@ -28,14 +28,10 @@ var todoFunctions = {
     // returns a new array, it should contain todos with the newTodo added to the end.
     // add an id to the newTodo. You can use the generateId function to create an id.
     // hint: array.concat
-    console.log(todoFunctions);
-    var newArr = [];
+    let newArr = this.cloneArrayOfObjects(todos);
+    newTodo["id"] = this.generateId();
     newArr.push(newTodo);
-    console.log("inside addTodo-----"+newArr);
     return newArr;
-
-
-
   },
   deleteTodo: function(todos, idToDelete) {
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
@@ -50,11 +46,21 @@ var todoFunctions = {
 })
   },
   markTodo: function(todos, idToMark) {
+    let result = todoFunctions.cloneArrayOfObjects(todos)
+    let sorted = result.map(function(x) {
+      if (x.id == "idToMark") {
+        x.done = true
+      }
+      return x;
+    })
+    return sorted
+
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
     // in the new todo array, all elements will remain unchanged except the one with id: idToMark
     // this element will have its done value toggled
     // hint: array.map
   },
+
   sortTodos: function(todos, sortFunction) {
     // stretch goal! Do this last
     // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
@@ -62,7 +68,6 @@ var todoFunctions = {
     // hint: array.slice, array.sort
   },
 };
-
 
 // Why is this if statement necessary?
 // The answer has something to do with needing to run code both in the browser and in Node.js

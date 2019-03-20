@@ -1,32 +1,37 @@
 var test = require('tape');
 var logic = require('./logic');
 
+test('Testing addTodo with empty array', function(t) {
+  var todos = [];
+  var newTodo = {
+    description: "just testing",
+    done: true
+  }
+  var acc = logic.addTodo([], newTodo);
+  var expected = [newTodo];
+  t.deepEqual(expected, expected, "input value not changed");
+  t.deepEqual(acc, expected, "expected value reached");
+  t.deepEqual(typeof acc[0]["id"],"number", "id value added");
+  t.end();
+});
 
-
-
-// test('Testing addToDo function', function(t) {
-//   console.log(newTodo);
-//   console.log(todos);
-//   var acc = newTodo;
-//   var expected = {
-//     description: "just testing",
-//     done: true
-//   }
-//   t.deepEqual(acc,expected,"msg");
-//   t.end();
-// });
-
-// test('Testing addToDo2 function', function(t) {
-//   var todos = [];
-//   var newTodo = {
-//     description: "just testing",
-//     done: true
-//   }
-//   var acc = logic.addTodo([], newTodo);
-//   var expected = [newTodo];
-//   t.deepEqual(acc, expected, "test fails");
-//   t.end();
-// })
+test('Testing addTodo with array not empty', function(t) {
+  let todo = {
+    description: "testing",
+    done: false
+  };
+  let todos = [todo];
+  let newTodo = {
+    description: "just testing",
+    done: true
+  }
+  let acc = logic.addTodo(todos, newTodo);
+  let expected = [todo, newTodo];
+  t.deepEqual(expected, expected, "input value not changed");
+  t.deepEqual(acc, expected, "expected value reached");
+  t.deepEqual(typeof acc[1]["id"],"number", "id value added");
+  t.end();
+})
 
 test('Testing deleteTodo if it delets a certain ID function' , function(t) {
 
@@ -42,5 +47,31 @@ test('Testing deleteTodo Keep the input argument unchanged' , function(t) {
   var acc=todos
   var expected =[{id:0,disc:"wake up every mor"},{id:1,disc:"Hi"}];
   t.deepEqual(acc, expected, "testing cloneArrayOfObjects getting new copy of arry");
+
+test('Testing markTodo function', function(t) {
+  let preTestItem = [{
+    id: 0,
+    description: "do my homework",
+    done: false
+  }, {
+    id: "idToMark",
+    description: "make my bed",
+    done: false
+  }];
+
+  let expected = [{
+    id: 0,
+    description: "do my homework",
+    done: false
+  }, {
+    id: "idToMark",
+    description: "make my bed",
+    done: true
+  }];
+
+  let actual = logic.markTodo(preTestItem, "idToMark");
+  console.log(actual)
+
+  t.deepEqual(actual, expected, "Should toggle 'done' value of item with id: idToMark")
   t.end();
-})
+});
