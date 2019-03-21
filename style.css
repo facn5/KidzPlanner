@@ -77,3 +77,10 @@ ul {
 li {
   border: 1px solid #9bc53d;
 }
+
+@media screen and (min-width: 600px) {
+  .list-group {
+    max-width: 600px;
+  }
+
+}
