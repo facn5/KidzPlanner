@@ -79,17 +79,20 @@
       let descriptionEle = document.getElementById("description"); // event.target ....
       let description = descriptionEle.value;
       // hint: todoFunctions.addTodo
-      let newTodo = {
-        description: description,
-        done: false
+
+      if (description) {
+        let newTodo = {
+          description: description,
+          done: false
+        }
+        state = todoFunctions.addTodo(state, newTodo);
+
+        descriptionEle.value = "";
+        // ?? change this!
+
+        update(state);
+
       }
-      state = todoFunctions.addTodo(state, newTodo);
-
-      descriptionEle.value = "";
-      // ?? change this!
-
-      update(state);
-
     });
   }
 
