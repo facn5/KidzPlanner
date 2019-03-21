@@ -1,12 +1,14 @@
-/* font-family: 'BioRhyme', serif;
-font-family: 'Shadows Into Light', cursive; */
+html {
+  background: #FEF9CD;
+}
+
 body {
   margin: 0 auto;
   text-align: center;
   font-family: 'Shadows Into Light', cursive;
   font-size: 2rem;
   color: #c3423f;
-  background-color:  #FEF9CD;
+  cursor: pointer;
   /* background-image:url(https://user-images.githubusercontent.com/32282170/54687770-028a4500-4b25-11e9-8fd4-bd77f50f2a7c.png);
   background-repeat: no-repeat;
   background-position: center; */
@@ -15,12 +17,14 @@ body {
 header {
   font-family: 'BioRhyme', serif;
   font-size: 3rem;
+  font-weight: bold;
   color: #5bc0eb;
+  text-shadow: -2px -2px 2px #211a1e;
 }
 
 input {
   font-family: 'Shadows Into Light', cursive;
-  font-size: 2rem;
+  font-size: 1rem;
   color: #c3423f;
 }
 
@@ -28,25 +32,48 @@ input {
   font-family: 'Shadows Into Light', cursive;
   font-size: 2rem;
 } */
-
 .list-group {
   display: block;
-  border: 1px solid black;
+  border: 1px solid #211a1e;
   margin: 0 auto;
   width: 90%;
 }
 
 #addTodo {
   display: block;
-  border: 1px solid black;
+  border: 1px solid #211a1e;
 }
 
 #todo-container {
   display: block;
-  border: 1px solid black;
+  border: 1px solid #211a1e;
 }
 
 #completed-container {
   display: block;
-  border: 1px solid black;
+  border: 1px solid #211a1e;
+}
+
+select {
+  appearance: none;
+  border: 0;
+}
+
+sub {
+  display: inline;
+  color: #c3423f;
+}
+
+footer {
+  font-size: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  border: 1px solid #9bc53d;
 }
