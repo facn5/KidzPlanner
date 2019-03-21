@@ -103,3 +103,20 @@ sub {
 footer {
   font-size: 1rem;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+li {
+  border: 1px solid #9bc53d;
+}
+
+@media screen and (min-width: 600px) {
+  .list-group {
+    max-width: 600px;
+  }
+
+}
