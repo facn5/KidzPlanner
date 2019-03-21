@@ -55,7 +55,11 @@
 
     // this adds the delete button
     let doneButtonNode = document.createElement('button');
+    if(!todo.done){
     doneButtonNode.textContent = "Done"; // Insert text
+  }else{
+    doneButtonNode.textContent = "Not Done";
+  }
     todoNode.appendChild(doneButtonNode);
 
     doneButtonNode.addEventListener('click', function(event) {
@@ -113,9 +117,11 @@
     var completedListNode = document.createElement('ul');
 
     state.forEach(function(todo) {
-      if (todo.done)
-        completedListNode.insertBefore(createTodoNode(todo),completedListNode.childNodes[0]);
-      else {
+      if (todo.done) {
+        console.log("-------------****");
+        console.log(todo);
+        completedListNode.insertBefore(createTodoNode(todo), completedListNode.childNodes[0]);
+      } else {
         todoListNode.appendChild(createTodoNode(todo));
       }
     });
