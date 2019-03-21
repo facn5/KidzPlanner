@@ -43,7 +43,11 @@
     todoNode.appendChild(deleteButtonNode);
 
     let doneButtonNode = document.createElement('button');
-    doneButtonNode.textContent = "Done";
+    if(!todo.done){
+    doneButtonNode.textContent = "Done"; // Insert text
+  }else{
+    doneButtonNode.textContent = "Not Done";
+  }
     todoNode.appendChild(doneButtonNode);
 
     doneButtonNode.addEventListener('click', function(event) {
