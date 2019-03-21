@@ -6,7 +6,7 @@ body {
   font-family: 'Shadows Into Light', cursive;
   font-size: 2rem;
   color: #c3423f;
-  background-color:  #FEF9CD;
+  background-color: #FEF9CD;
   /* background-image:url(https://user-images.githubusercontent.com/32282170/54687770-028a4500-4b25-11e9-8fd4-bd77f50f2a7c.png);
   background-repeat: no-repeat;
   background-position: center; */
@@ -18,17 +18,38 @@ header {
   color: #5bc0eb;
 }
 
-input {
+ul {
+  display: flex;
+}
+
+.btn {
   font-family: 'Shadows Into Light', cursive;
   font-size: 2rem;
   color: #c3423f;
+  border: 1px;
+  border-radius: 40%;
 }
 
+.btn:hover {
+  color: #b6ba55;
+  background-color: #6a6b54;
+  /* animation: b09_electric_blinkIn 0.1s step-end 0 2; */
+  /* -webkit-animation: b09_electric_blinkIn 0.1s step-end 0 2; */
+  /* -moz-animation: b09_electric_blinkIn 0.1s step-end 0 2; */
+  transition: all 0.2s ease 0.1s;
+  /* -webkit-transition: all 0.2s ease 0.2s; */
+  /* -moz-transition: all 0.2s ease 0.2s; */
+}
+
+/* input {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1rem;
+  color: #c3423f;
+} */
 /* input[type=submit]{
   font-family: 'Shadows Into Light', cursive;
   font-size: 2rem;
 } */
-
 .list-group {
   display: block;
   border: 1px solid black;
