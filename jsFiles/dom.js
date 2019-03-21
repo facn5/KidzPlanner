@@ -4,22 +4,7 @@
   var completedContainer = document.getElementById('completed-container');
   var addTodoForm = document.getElementById('add-todo');
 
-  var state = [{
-      description: 'first todo',
-      done: true,
-      id: -3
-    },
-    {
-      id: -2,
-      description: 'second todo',
-      done: false
-    },
-    {
-      id: -1,
-      description: 'third todo',
-      done: false
-    },
-  ]; // This is our initial todoList
+  var state = []; // This is our initial todoList
   // This function takes a todo, it returns the DOM node representing that todo
   var createTodoNode = function(todo) {
     let todoNode = document.createElement('li');
