@@ -1,9 +1,7 @@
 html {
   background: #FEF9CD;
 }
-div{
-  /* height: 50%; */
-}
+
 body {
   margin: 0 auto;
   text-align: center;
@@ -11,7 +9,6 @@ body {
   font-size: 2rem;
   color: #c3423f;
   background-color: #FEF9CD;
-  cursor: pointer;
 }
 
 header {
@@ -23,9 +20,7 @@ header {
 }
 
 ul {
-  /* display: flex; */
   flex-direction: column;
-  /* justify-content: space-evenly; */
   align-items: center;
   width: 90%;
   list-style-type: none;
@@ -36,7 +31,6 @@ ul {
 li {
   border: 1px solid #9bc53d;
 }
-
 
 .done {
   opacity: 0.8;
@@ -56,16 +50,10 @@ li {
   transition: all 0.2s ease 0.1s;
 }
 
-/* input {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 1rem;
-  color: #c3423f;
-} */
+input, input.btn, button.btn {
+  cursor: pointer;
+}
 
-/* input[type=submit]{
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 2rem;
-} */
 .list-group {
   display: block;
   border: 2px solid #211a1e;
@@ -81,13 +69,11 @@ li {
 
 #todo-container {
   display: block;
-  /* border: 1px solid #211a1e; */
 }
 
 #completed-container {
   display: block;
   padding: 2%;
-  /* border: 1px solid #211a1e; */
 }
 
 select {
@@ -118,5 +104,4 @@ li {
   .list-group {
     max-width: 600px;
   }
-
 }
