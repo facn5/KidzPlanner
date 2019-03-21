@@ -20,6 +20,14 @@ header {
 
 ul {
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.done{
+  opacity: 0.8;
 }
 
 .btn {
