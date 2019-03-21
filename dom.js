@@ -48,6 +48,7 @@
       let newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
+    deleteButtonNode.classList.add("btn");
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
@@ -61,10 +62,12 @@
       let newState = todoFunctions.markTodo(state, todo.id);
       update(newState);
     });
-    todoNode.appendChild(doneButtonNode);
+
 
     // add classes for css
+    doneButtonNode.classList.add("btn");
 
+    todoNode.appendChild(doneButtonNode);
     return todoNode;
   };
 
@@ -79,17 +82,20 @@
       let descriptionEle = document.getElementById("description"); // event.target ....
       let description = descriptionEle.value;
       // hint: todoFunctions.addTodo
-      let newTodo = {
-        description: description,
-        done: false
+
+      if (description) {
+        let newTodo = {
+          description: description,
+          done: false
+        }
+        state = todoFunctions.addTodo(state, newTodo);
+
+        descriptionEle.value = "";
+        // ?? change this!
+
+        update(state);
+
       }
-      state = todoFunctions.addTodo(state, newTodo);
-
-      descriptionEle.value = "";
-      // ?? change this!
-
-      update(state);
-
     });
   }
 
@@ -108,15 +114,15 @@
 
     state.forEach(function(todo) {
       if (todo.done)
-        completedListNode.appendChild(createTodoNode(todo));
+        completedListNode.insertBefore(createTodoNode(todo),completedListNode.childNodes[0]);
       else {
         todoListNode.appendChild(createTodoNode(todo));
       }
     });
 
     // you may want to add a class for css
-    todoContainer.replaceChild(todoListNode, todoContainer.firstChild);
-    completedContainer.replaceChild(completedListNode, completedContainer.firstChild);
+    todoContainer.replaceChild(todoListNode, todoContainer.lastChild);
+    completedContainer.replaceChild(completedListNode, completedContainer.lastChild);
   };
 
   if (todoContainer) renderState(state);
